@@ -1,0 +1,15 @@
+<web-app>
+    
+    <servlet>
+        <servlet-name>hello</servlet-name>
+        <servlet-class>UserDetailsServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>hello</servlet-name>
+        <url-pattern>/result</url-pattern>
+    </servlet-mapping>
+    
+</web-app>
+
+
