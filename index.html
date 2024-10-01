@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Exercise 4.1</title>
+    <title>Login page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,45 +15,40 @@
     <div class="background-blur"></div>
 
     <div class="container">
-        <div class="video-container">
-            <img src="./images/henkco-ten-caat-moving-cats.gif" alt="Song-related GIF" class="song-gif">
-        </div>
-
         <div class="form-container">
-            <form id="userDetailsForm" action="result" method="post">
+            <form id="userDetailsForm" action="http://localhost:8080/WT/result" method="get">
                 <h2>User Details</h2>
                 <div class="form-group">
                     <label for="userName">Name</label>
-                    <input type="text" class="form-control" id="userName" placeholder="Enter your name" required>
-                    <div class="message" id="nameMessage"></div>
+                    <input type="text" class="form-control" id="userName" name="userName" placeholder="Enter your name" required>
                 </div>
                 <div class="form-group">
                     <label for="userEmail">Email</label>
-                    <input type="email" class="form-control" id="userEmail" placeholder="Enter your email" required>
+                    <input type="email" class="form-control" id="userEmail" name="userEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="userPhno">Phone number</label>
+                    <input type="tel" class="form-control" id="userPhno" name="userPhno" pattern="[0-9]{10}" placeholder="Enter your 10-digit phone number" required>
                 </div>
                 <div class="form-group">
                     <label for="userAge">Age</label>
-                    <input type="number" class="form-control" id="userAge" placeholder="Enter your age" min="1" required>
+                    <input type="number" class="form-control" id="userAge" name="userAge" placeholder="Enter your age" min="1" required>
                 </div>
                 <div class="form-group">
-                    <label for="favoriteArtist">Favorite Artist</label>
-                    <input type="text" class="form-control" id="favoriteArtist" placeholder="Enter your favorite artist" required>
-                    <div class="message" id="artistMessage"></div>
+                    <label for="userAddress">Address</label>
+                    <input type="text" class="form-control" id="userAddress" name="userAddress" placeholder="Enter your address" required>
                 </div>
                 <div class="form-group">
-                    <label for="userGenre">Favorite Genre</label>
-                    <select class="form-control" id="userGenre" required>
-                        <option value="">Select genre</option>
-                        <option value="pop">Pop</option>
-                        <option value="rock">Rock</option>
-                        <option value="jazz">Jazz</option>
-                        <option value="classical">Classical</option>
+                    <label for="userDob">Date of Birth</label>
+                    <input type="date" class="form-control" id="userDob" name="userDob" required>
+                </div>
+                <div class="form-group">
+                    <label for="userGender">Gender</label>
+                    <select class="form-control" id="userGender" name="userGender" required>
+                        <option value="">Select gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
                     </select>
-                    <div class="message" id="genreMessage"></div>
-                </div>
-                <div class="form-group">
-                    <label for="userComments">Comments</label>
-                    <textarea class="form-control" id="userComments" rows="3" placeholder="Any additional comments..."></textarea>
                 </div>
                 <div class="submit-btn">
                     <button type="submit" class="btn btn-primary" style="font-size: larger;">Submit</button>

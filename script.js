@@ -1,68 +1,57 @@
-document.getElementById('userDetailsForm').addEventListener('submit', function(event) {
+function submitted(event) {
     event.preventDefault();
 
     const nameInput = document.getElementById('userName');
     const emailInput = document.getElementById('userEmail');
+    const phoneInput = document.getElementById('userPhno');
     const ageInput = document.getElementById('userAge');
-    const artistInput = document.getElementById('favoriteArtist');
-    const genreInput = document.getElementById('userGenre');
+    const dobInput = document.getElementById('userDob');
+    const genderInput = document.getElementById('userGender');
 
     let isValid = true;
- 
-    // Enforce character limit for name, email, favoriteArtist, genre
-    if (nameInput.value.length > 30 || emailInput.value.length > 30 || artistInput.value.length > 30 || genreInput.value.length > 30) {
+
+    // Validation for input length
+    if (nameInput.value.length > 30 || emailInput.value.length > 30 || dobInput.value.length > 30) {
         alert('Inputs should not exceed 30 characters.');
         isValid = false;
     }
 
+    // Validate name (only letters and spaces)
     if (!/^[a-zA-Z\s]+$/.test(nameInput.value)) {
         alert('Name should only contain letters and spaces.');
         isValid = false;
     }
 
+    // Validate email format
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailPattern.test(emailInput.value)) {
         alert('Please enter a valid email address.');
         isValid = false;
     }
 
-    // Restrict age to integers only
+    // Validate phone number (should be at least 10 digits)
+    if (phoneInput.value.length === 10 || !/^\d+$/.test(phoneInput.value)) {
+        alert('Phone number must be 10 digits.');
+        isValid = false;
+    }
+
+    // Validate age (positive integer)
     if (!/^\d+$/.test(ageInput.value) || ageInput.value <= 0) {
         alert('Age must be a positive integer.');
         isValid = false;
     }
+    if (!ageInput.value >= 100) {
+        alert('How are you still alive!!!');
+        isValid = false;
+    }
+
+    // Validate date of birth (basic format check for demonstration)
+    if (!/^\d{2}\/\d{2}\/\d{4}$/.test(dobInput.value)) {
+        alert('Please enter Date of Birth in DD/MM/YYYY format.');
+        isValid = false;
+    }
 
     if (isValid) {
-        //alert('Form submitted successfully!');
+        alert('Form submitted successfully!');
     }
-});
-
-// Simplified input shake effect
-const inputs = document.querySelectorAll('.form-control');
-
-inputs.forEach(input => {
-    input.addEventListener('input', function() {
-        // Shake effect with smoother animation
-        input.style.transform = 'translateX(-5px)';
-        setTimeout(() => {
-            input.style.transform = 'translateX(5px)';
-        }, 100);
-        setTimeout(() => {
-            input.style.transform = 'translateX(0)';
-        }, 200);
-
-        if (this.id === 'userName') {
-            const nameMessage = document.getElementById('nameMessage');
-            nameMessage.textContent = `Hi, ${this.value}! Ready to jam?`;
-            nameMessage.style.display = this.value ? 'block' : 'none';
-        } else if (this.id === 'favoriteArtist') {
-            const artistMessage = document.getElementById('artistMessage');
-            artistMessage.textContent = `Awesome choice! I love ${this.value} too!`;
-            artistMessage.style.display = this.value ? 'block' : 'none';
-        } else if (this.id === 'userGenre') {
-            const genreMessage = document.getElementById('genreMessage');
-            genreMessage.textContent = `Nice! ${this.value} is a great genre!`;
-            genreMessage.style.display = this.value ? 'block' : 'none';
-        }
-    });
-});
+}
