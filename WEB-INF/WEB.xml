@@ -17,7 +17,7 @@
 
     <servlet-mapping>
         <servlet-name>deathPredictor</servlet-name>
-        <url-pattern>/hello</url-pattern>
+        <url-pattern>/deathWish</url-pattern>
     </servlet-mapping>
     
 </web-app>

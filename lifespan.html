@@ -6,6 +6,66 @@
     <title>Astrology</title>
 </head>
 <body>
-    
+
+    <h1>User Information Form</h1>
+    <form action="http://localhost:8080/WT/deathWish" id="userForm" method="get">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="" disabled selected>Select your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select><br><br>
+
+        <fieldset>
+            <legend>Select your favorite foods (choose any five):</legend>
+            <input type="checkbox" id="food1" name="food" value="Pizza">
+            <label for="food1">Pizza</label><br>
+
+            <input type="checkbox" id="food2" name="food" value="Burger">
+            <label for="food2">Burger</label><br>
+
+            <input type="checkbox" id="food3" name="food" value="Sushi">
+            <label for="food3">Sushi</label><br>
+
+            <input type="checkbox" id="food4" name="food" value="Pasta">
+            <label for="food4">Pasta</label><br>
+
+            <input type="checkbox" id="food5" name="food" value="Salad">
+            <label for="food5">Salad</label><br>
+
+            <input type="checkbox" id="food6" name="food" value="Ice Cream">
+            <label for="food6">Ice Cream</label><br>
+
+            <input type="checkbox" id="food7" name="food" value="Tacos">
+            <label for="food7">Tacos</label><br>
+
+            <input type="checkbox" id="food8" name="food" value="Steak">
+            <label for="food8">Steak</label><br>
+
+            <input type="checkbox" id="food9" name="food" value="Fried Rice">
+            <label for="food9">Fried Rice</label><br>
+
+            <input type="checkbox" id="food10" name="food" value="Chocolate">
+            <label for="food10">Chocolate</label><br>
+        </fieldset>
+
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            const checkedFoods = document.querySelectorAll('input[name="food"]:checked');
+            if (checkedFoods.length > 5) {
+                alert('Please select a maximum of 5 foods.');
+                event.preventDefault();
+            }
+        });
+    </script>
+
 </body>
 </html>
