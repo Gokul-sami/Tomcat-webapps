@@ -27,6 +27,7 @@ h2 {
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
+    width: 60%;
 }
 
 .video-container {
