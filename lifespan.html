@@ -18,16 +18,16 @@
     <div class="left"></div>
     <div class="main">
         <h1 class="header">User Information</h1>
-        <form action="http://localhost:8080/WT/deathWish" class="needs-validation" method="get" validate="">
+        <form action="http://localhost:8080/WT/deathWish" class="needs-validation" method="get" novalidate="">
             <div class="row g-3">
                 <div class="col-sm-12">
                     <label for="Name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="Name" placeholder="Witcher" required>
+                    <input type="text" name="name" class="form-control" id="Name" placeholder="Witcher" required>
                 </div>
 
                 <div class="col-md-6">
                     <label for="Age" class="form-label">Age</label>
-                    <input min="1" max="100" type="number" class="form-control" id="Age" required>
+                    <input min="1" max="100" type="number" name="age" class="form-control" id="Age" required>
                 </div>
 
                 <div class="col-md-6">
@@ -46,44 +46,44 @@
                 <h4 class="mb-3">Food Intake</h4>
 
                 <div class="form-check">
-                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">Chappathi</label>
+                    <input class="form-check-input" name="food" type="checkbox" value="Chappathi" id="flexCheckChappathi">
+                    <label class="form-check-label" for="flexCheckChappathi">Chappathi</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckChecked">
-                    <label class="form-check-label" for="flexCheckChecked">Idly</label>
+                    <input class="form-check-input" name="food" type="checkbox" value="Idly" id="flexCheckIdly">
+                    <label class="form-check-label" for="flexCheckIdly">Idly</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">Dosai</label>
+                    <input class="form-check-input" name="food" type="checkbox" value="Dosai" id="flexCheckDosai">
+                    <label class="form-check-label" for="flexCheckDosai">Dosai</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckChecked">
-                    <label class="form-check-label" for="flexCheckChecked">Cornflex</label>
+                    <input class="form-check-input" name="food" type="checkbox" value="Cornflex" id="flexCheckCornflex">
+                    <label class="form-check-label" for="flexCheckCornflex">Cornflex</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">Salad</label>
+                    <input class="form-check-input" name="food" type="checkbox" value="Salad" id="flexCheckSalad">
+                    <label class="form-check-label" for="flexCheckSalad">Salad</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckChecked">
-                    <label class="form-check-label" for="flexCheckChecked">Noodles</label>
+                    <input class="form-check-input" name="food" type="checkbox" value="Noodles" id="flexCheckNoodles">
+                    <label class="form-check-label" for="flexCheckNoodles">Noodles</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">Bread and Jam</label>
+                    <input class="form-check-input" name="food" type="checkbox" value="Bread and Jam" id="flexCheckBreadJam">
+                    <label class="form-check-label" for="flexCheckBreadJam">Bread and Jam</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckChecked">
-                    <label class="form-check-label" for="flexCheckChecked">Pasta</label>
+                    <input class="form-check-input" name="food" type="checkbox" value="Pasta" id="flexCheckPasta">
+                    <label class="form-check-label" for="flexCheckPasta">Pasta</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">Parotta</label>
+                    <input class="form-check-input" name="food" type="checkbox" value="Parotta" id="flexCheckParotta">
+                    <label class="form-check-label" for="flexCheckParotta">Parotta</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckChecked">
-                    <label class="form-check-label" for="flexCheckChecked">Upma</label>
+                    <input class="form-check-input" name="food" type="checkbox" value="Upma" id="flexCheckUpma">
+                    <label class="form-check-label" for="flexCheckUpma">Upma</label>
                 </div>
             </div>
 
