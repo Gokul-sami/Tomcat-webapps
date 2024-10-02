@@ -4,68 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Astrology</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./Death Predictor/lifespan.css">
+    <style>
+        /* Override Bootstrap validation styles */
+        input:valid, select:valid {
+            border-color: initial !important; /* Reset border color */
+            box-shadow: none !important; /* Remove box-shadow */
+        }
+    </style>
 </head>
 <body>
+    <div class="left"></div>
+    <div class="main">
+        <h1 class="header">User Information</h1>
+        <form action="http://localhost:8080/WT/deathWish" class="needs-validation" method="get" validate="">
+            <div class="row g-3">
+                <div class="col-sm-12">
+                    <label for="Name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="Name" placeholder="Witcher" required>
+                </div>
 
-    <h1>User Information Form</h1>
-    <form action="http://localhost:8080/WT/deathWish" id="userForm" method="get">
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age" required><br><br>
+                <div class="col-md-6">
+                    <label for="Age" class="form-label">Age</label>
+                    <input min="1" max="100" type="number" class="form-control" id="Age" required>
+                </div>
 
-        <label for="gender">Gender:</label>
-        <select id="gender" name="gender" required>
-            <option value="" disabled selected>Select your gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-        </select><br><br>
+                <div class="col-md-6">
+                    <label for="country" class="form-label">Gender</label>
+                    <select name="gender" class="form-select" id="country" required>
+                        <option value="">Choose...</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+            </div>
 
-        <fieldset>
-            <legend>Select your favorite foods (choose any five):</legend>
-            <input type="checkbox" id="food1" name="food" value="Pizza">
-            <label for="food1">Pizza</label><br>
+            <hr class="my-4">
 
-            <input type="checkbox" id="food2" name="food" value="Burger">
-            <label for="food2">Burger</label><br>
+            <div class="foodSection">
+                <h4 class="mb-3">Food Intake</h4>
 
-            <input type="checkbox" id="food3" name="food" value="Sushi">
-            <label for="food3">Sushi</label><br>
+                <div class="form-check">
+                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">Chappathi</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">Idly</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">Dosai</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">Cornflex</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">Salad</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">Noodles</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">Bread and Jam</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">Pasta</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">Parotta</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" name="food" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">Upma</label>
+                </div>
+            </div>
 
-            <input type="checkbox" id="food4" name="food" value="Pasta">
-            <label for="food4">Pasta</label><br>
+            <hr class="my-4">
 
-            <input type="checkbox" id="food5" name="food" value="Salad">
-            <label for="food5">Salad</label><br>
+            <button class="w-100 btn btn-primary btn-lg" type="submit">Continue</button>
+        </form>
+    </div>
+    <div class="right"></div>
 
-            <input type="checkbox" id="food6" name="food" value="Ice Cream">
-            <label for="food6">Ice Cream</label><br>
-
-            <input type="checkbox" id="food7" name="food" value="Tacos">
-            <label for="food7">Tacos</label><br>
-
-            <input type="checkbox" id="food8" name="food" value="Steak">
-            <label for="food8">Steak</label><br>
-
-            <input type="checkbox" id="food9" name="food" value="Fried Rice">
-            <label for="food9">Fried Rice</label><br>
-
-            <input type="checkbox" id="food10" name="food" value="Chocolate">
-            <label for="food10">Chocolate</label><br>
-        </fieldset>
-
-        <br>
-        <button type="submit">Submit</button>
-    </form>
-
-    <script>
-        document.getElementById('userForm').addEventListener('submit', function(event) {
-            const checkedFoods = document.querySelectorAll('input[name="food"]:checked');
-            if (checkedFoods.length > 5) {
-                alert('Please select a maximum of 5 foods.');
-                event.preventDefault();
-            }
-        });
-    </script>
-
+    <script src="./Death Predictor/lifespan.js"></script>
 </body>
 </html>

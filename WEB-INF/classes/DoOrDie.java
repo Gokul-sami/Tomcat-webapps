@@ -6,17 +6,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/result")
-public class UserDetailsServlet extends HttpServlet {
+@WebServlet("/deathWish")
+public class DoOrDie extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
         // Retrieve parameters from the form submission
-        String title = "Form Inputs";
-        String name = request.getParameter("userName");
-        String email = request.getParameter("userEmail");
-        String phone = request.getParameter("userPhno");
+        String title = "Your Life Span";
+        String name = request.getParameter("name");
+        String gender = request.getParameter("gender");
+        String food[] = request.getParameterValues("food");
     
+        
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
 
-
+        // Generate the HTML response
+        out.println("<html><head><title>" + title + "</title></head>");
     }
 }

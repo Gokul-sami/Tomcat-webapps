@@ -12,7 +12,7 @@
     <!--  -->
     <servlet>
         <servlet-name>deathPredictor</servlet-name>
-        <servlet-class></servlet-class>
+        <servlet-class>DoOrDie</servlet-class>
     </servlet>
 
     <servlet-mapping>

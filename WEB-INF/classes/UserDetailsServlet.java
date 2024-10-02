@@ -20,8 +20,6 @@ public class UserDetailsServlet extends HttpServlet {
         String dob = request.getParameter("userDob");
         String gender = request.getParameter("userGender");
         
-        System.out.println("Servlet is running");
-
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
