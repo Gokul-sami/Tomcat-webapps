@@ -49,7 +49,7 @@ public class DoOrDie extends HttpServlet {
         // Calculate expected lifespan
         int A = Integer.parseInt(age);
         int G = "Male".equals(gender) ? 1 : 2; // Male = 1, Female = 2
-        double expectedLifespan = (80 - A) * (1 - (totalToxicity / 50.0)) + (totalEnergy / 2.0 * G / 2.0) + A;
+        double expectedLifespan = (65 - A) * (1 - (totalToxicity / 50.0)) + (totalEnergy / 2.0 * G / 2.0) + A;
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
