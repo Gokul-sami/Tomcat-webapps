@@ -17,9 +17,8 @@ public class DoOrDie extends HttpServlet {
         String gender = request.getParameter("gender");
         String[] food = request.getParameterValues("food");
 
-        // Predefined toxicity and energy levels for the food items
         Object[][] foodValues = {
-            {"Chappathi", 4, 4},  // {food item, toxicity, energy}
+            {"Chappathi", 4, 4},  // food item, toxicity, energy
             {"Idly", 2, 5},
             {"Dosai", 2, 6},
             {"Cornflex", 4, 8},
@@ -39,8 +38,8 @@ public class DoOrDie extends HttpServlet {
             for (String selectedFood : food) {
                 for (Object[] item : foodValues) {
                     if (item[0].equals(selectedFood)) {
-                        totalToxicity += (int)item[1];  // Cast to int
-                        totalEnergy += (int)item[2];    // Cast to int
+                        totalToxicity += (int)item[1];
+                        totalEnergy += (int)item[2];
                         break;
                     }
                 }
@@ -78,8 +77,8 @@ public class DoOrDie extends HttpServlet {
         // JavaScript to manage the countdown and GIF switch
         out.println("<script>");
         out.println("let lifespan = 0;");
-        out.println("const expectedLifespan = " + (int)expectedLifespan + ";");  // Insert the calculated lifespan
-        out.println("const countdownTarget = expectedLifespan;");  // Target year to switch the candle gif
+        out.println("const expectedLifespan = " + (int)expectedLifespan + ";");
+        out.println("const countdownTarget = expectedLifespan;");
         out.println("const lifespanElement = document.getElementById('lifespan');");
         out.println("const candleGifElement = document.getElementById('candleGif');");
 
@@ -102,7 +101,7 @@ public class DoOrDie extends HttpServlet {
         out.println("  if (lifespan >= countdownTarget) {");
         out.println("    clearInterval(countdownInterval);");
         out.println("  }");
-        out.println("}, 100);");  // Update every second
+        out.println("}, 100);");
 
         out.println("</script>");
         out.println("</body></html>");
