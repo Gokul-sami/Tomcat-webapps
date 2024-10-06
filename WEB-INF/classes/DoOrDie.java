@@ -49,7 +49,7 @@ public class DoOrDie extends HttpServlet {
         // Calculate expected lifespan
         int A = Integer.parseInt(age);
         int G = "Male".equals(gender) ? 1 : 2; // Male = 1, Female = 2
-        double expectedLifespan
+        double expectedLifespan;
         if (A > 65) {
             expectedLifespan = A;
         } else {
