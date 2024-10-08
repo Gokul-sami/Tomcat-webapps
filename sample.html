@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="b1" onclick="start()">Press me!</button>
+    <button id="b2" onclick="ay()">show</button>
+    <div id="d1"></div>
+    <div id="d2"></div>
+
+    <script>
+        var m1 = new Array(3,3);
+        function start(){
+
+
+            var i, j, c=1;
+            for(i=0;i<3;i++){
+                m1[i] = [];
+                for(j=0;j<3;j++){
+                    m1[i][j] = c++;
+                }
+            }
+        }
+
+        function ay(){
+            var m2 = new Array(3,3);
+            var i, j;
+            for(i=0;i<3;i++){
+                m2[i] = [];
+                for(j=0;j<3;j++){
+                    m2[i][j] = m1[j][i];
+                }
+            }
+
+            console.log(m1);
+            document.getElementById("d1").innerHTML = m1;
+            document.getElementById("d2").innerHTML = m2;
+            
+            // document.write("<html><head></head><body><div>"+ m1 +"</div></body>");
+        }
+    </script>
+</body>
+</html>
