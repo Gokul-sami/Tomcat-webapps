@@ -16,7 +16,7 @@ public class p12_db3 extends HttpServlet{
         //String department = request.getParameter("course");
         try
         {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             //create a database connection using jdbc , port no used here is 3306
             // database name is college and username is root , there is no password
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/college","root", "");

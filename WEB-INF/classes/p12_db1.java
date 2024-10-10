@@ -14,7 +14,7 @@ public class p12_db1 extends HttpServlet{
         PrintWriter out = response.getWriter();
         try
         {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             //out.println("<h1> into class</h1>");
             //create a database connection using jdbc , port no used here is 3306
             // database name is college and username is root , there is no password
