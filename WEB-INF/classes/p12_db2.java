@@ -6,6 +6,9 @@ import java.sql.*;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.SQLException;
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/db2")
 public class p12_db2 extends HttpServlet{
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {

@@ -6,6 +6,9 @@ import java.sql.*;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.SQLException;
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/db3")
 public class p12_db3 extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
