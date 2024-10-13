@@ -9,11 +9,11 @@
 <body>
     <h1>Student Marklist</h1><hr>    
     <!--Invoke marklist1 servlet to display all the students' marks-->
-    <a href="http://localhost:8080/WT/db1">Display all students' marks</a>
+    <a href="http://localhost:8080/Tomcat-webapps/db1">Display all students' marks</a>
     <hr>
     <!-- On submit invoke marklist2 servlet to display mark details of specific dept students-->
     <h3>View Department Specific Mark Details</h3>
-    <form action="http://localhost:8080/WT/db2">
+    <form action="http://localhost:8080/Tomcat-webapps/db2">
         <!--Drop down selection-->
         <label for="course">Department</label>
         <select id="course" name="course">
@@ -26,7 +26,7 @@
         <input type="submit" value="SUBMIT"/>
     </form>
     <h2>Insert Data into DB</h2>
-    <form action="http://localhost:8080/WT/db3" method="post">
+    <form action="http://localhost:8080/Tomcat-webapps/db3" method="post">
         <p>Dept ID:</p> 
         <!-- Create an element with mandatory name attribute,
         so that data can be transfer to the servlet using getParameter() -->
