@@ -63,6 +63,17 @@
         <servlet-name>HelloWorld</servlet-name>
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
+
+    <!-- Form ex 5b -->
+    <servlet>
+        <servlet-name>Serveform</servlet-name>
+        <servlet-class>ex5_b</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Serveform</servlet-name>
+        <url-pattern>/formServe</url-pattern>
+    </servlet-mapping>
     
 </web-app>
 
