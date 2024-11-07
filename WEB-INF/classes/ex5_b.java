@@ -40,13 +40,13 @@ public class ex5_b extends HttpServlet {
             } 
             else if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
                 out.println("<p class='error'>Email must be in a valid format.</p>");
-            }
+            } 
             else if (password == null || password.isEmpty()) {
                 out.println("<p class='error'>Password is required.</p>");
             } 
             else if (password.length() < 8 || !password.matches(".*\\d.*") || !password.matches(".*[a-zA-Z].*")) {
                 out.println("<p class='error'>Password is weak. Please choose a password with at least 8 characters, including both letters and numbers.</p>");
-            }
+            } 
             else {
                 out.println("<script>alert('Form submitted successfully!');</script>");
                 out.println("<h1>Form Details</h1>");
@@ -55,7 +55,7 @@ public class ex5_b extends HttpServlet {
                 out.println("<label for='email'>Email:</label>");
                 out.println("<p>" + email + "</p>");
                 out.println("<h2 style='color:green;'>Form submitted successfully!</h2>");
-            }
+            } 
 
             out.println("</div>"); 
             out.println("</body></html>");
@@ -64,4 +64,4 @@ public class ex5_b extends HttpServlet {
             out.close();
         } 
     } 
-}
+} 
