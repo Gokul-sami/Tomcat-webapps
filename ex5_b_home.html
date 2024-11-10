@@ -8,24 +8,6 @@
 </head>
 <body>
     <div class="main">
-        <!-- Navigation area (d1) -->
-        <div class="d1">
-            <div class="logo">🎵 Groovy</div>
-            <div class="nav-section">
-                <div class="nav-link"><span class="icon">🏠</span>Home</div>
-                <div class="nav-link"><span class="icon">🔍</span>Search</div>
-                <div class="nav-link"><span class="icon">📚</span>My Library</div>
-            </div>
-            <div class="nav-section">
-                <div class="nav-link"><span class="icon">➕</span>New Playlist</div>
-                <div class="nav-link"><span class="icon">❤️</span>Liked Songs</div>
-            </div>
-            <div class="nav-bottom">
-                <div class="nav-link"><span class="icon">⚙️</span>Settings</div>
-                <div class="nav-link"><span class="icon">🚪</span>Logout</div>
-            </div>
-        </div>
-
         <!-- Content area (d2) -->
         <div class="d2">
             <!-- Header area (d3) -->
@@ -70,40 +52,90 @@
                 </div>              
             </div>
 
-            <!-- Song listing area (d5) -->
-            <div class="d5">
-                <h2>Song List</h2>
-                <div class="song-item">
-                    <span class="song-title">Song 1</span>
-                    <span class="song-artist">Artist 1</span>
-                    <audio controls>
-                        <source src="song1.mp3" type="audio/mp3">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="song-item">
-                    <span class="song-title">Song 2</span>
-                    <span class="song-artist">Artist 2</span>
-                    <audio controls>
-                        <source src="song2.mp3" type="audio/mp3">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="song-item">
-                    <span class="song-title">Song 3</span>
-                    <span class="song-artist">Artist 3</span>
-                    <audio controls>
-                        <source src="song3.mp3" type="audio/mp3">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="song-item">
-                    <span class="song-title">Song 4</span>
-                    <span class="song-artist">Artist 4</span>
-                    <audio controls>
-                        <source src="song4.mp3" type="audio/mp3">
-                        Your browser does not support the audio element.
-                    </audio>
+            <!-- Popular Songs Section -->
+            <div class="popular-section">
+                <h2 style="font-size: 2em;">Popular Songs</h2>
+                <div class="popular-songs">
+                    <!-- Song 1 -->
+                    <div class="popular">
+                        <a href="https://open.spotify.com/track/2GiJYvgVaD2HtM8GqD9EgQ">
+                            <img class="cover" src="./Exercise 5 servlet/images/electric love.jpg" alt="Electric Love">
+                        </a>
+                        <a href="https://open.spotify.com/track/2GiJYvgVaD2HtM8GqD9EgQ" class="popular-song-name">Electric Love</a>
+                        <div class="popular-singer-name">Borns</div>
+                    </div>
+
+                    <!-- Song 2 -->
+                    <div class="popular">
+                        <a href="https://open.spotify.com/track/42VsgItocQwOQC3XWZ8JNA">
+                            <img class="cover" src="./Exercise 5 servlet/images/fein.jpg" alt="FEIN">
+                        </a>
+                        <a href="https://open.spotify.com/track/42VsgItocQwOQC3XWZ8JNA" class="popular-song-name">FEIN</a>
+                        <div class="popular-singer-name">Travis Scott, Playboi Carti</div>
+                    </div>
+
+                    <!-- Song 3 -->
+                    <div class="popular">
+                        <a href="https://open.spotify.com/track/5FVd6KXrgO9B3JPmC8OPst">
+                            <img class="cover" src="./Exercise 5 servlet/images/do i wanna know.jpg" alt="Do I Wanna Know">
+                        </a>
+                        <a href="https://open.spotify.com/track/5FVd6KXrgO9B3JPmC8OPst" class="popular-song-name">Do I Wanna Know</a>
+                        <div class="popular-singer-name">Arctic Monkeys</div>
+                    </div>
+
+                    <!-- Song 4 -->
+                    <div class="popular">
+                        <a href="https://open.spotify.com/track/5LrN7yUQAzvthd4QujgPFr">
+                            <img class="cover" src="./Exercise 5 servlet/images/here.jpg" alt="Here">
+                        </a>
+                        <a href="https://open.spotify.com/track/5LrN7yUQAzvthd4QujgPFr" class="popular-song-name">Here</a>
+                        <div class="popular-singer-name">Alessia Shah</div>
+                    </div>
+
+                    <!-- Song 5 -->
+                    <div class="popular">
+                        <a href="https://open.spotify.com/track/4ztdjZ2t7BVo5DLIFQBdJh">
+                            <img class="cover" src="./Exercise 5 servlet/images/jericho.jpg" alt="Jericho">
+                        </a>
+                        <a href="https://open.spotify.com/track/4ztdjZ2t7BVo5DLIFQBdJh" class="popular-song-name">Jericho</a>
+                        <div class="popular-singer-name">Iniko</div>
+                    </div>
+
+                    <!-- Song 6 -->
+                    <div class="popular">
+                        <a href="https://open.spotify.com/album/7vus4Q8r5DS2Dl1JClxEsA">
+                            <img class="cover" src="./Exercise 5 servlet/images/astronaut in the ocean.jpg" alt="Astronaut In The Ocean">
+                        </a>
+                        <a href="https://open.spotify.com/album/7vus4Q8r5DS2Dl1JClxEsA" class="popular-song-name">Astronaut In The Ocean</a>
+                        <div class="popular-singer-name">Masked Wolf</div>
+                    </div>
+
+                    <!-- Song 7 -->
+                    <div class="popular">
+                        <a href="https://open.spotify.com/track/2gam98EZKrF9XuOkU13ApN">
+                            <img class="cover" src="./Exercise 5 servlet/images/promiscuous.jpg" alt="Promiscuous">
+                        </a>
+                        <a class="popular-song-name" href="https://open.spotify.com/track/2gam98EZKrF9XuOkU13ApN">Promiscuous</a>
+                        <div class="popular-singer-name">Nelly Furtado, Timbaland</div>
+                    </div>
+
+                    <!-- Song 8 -->
+                    <div class="popular">
+                        <a href="https://open.spotify.com/track/3M0lSi5WW79CXQamgSBIjx">
+                            <img class="cover" src="./Exercise 5 servlet/images/swim.jpg" alt="Swim">
+                        </a>
+                        <a class="popular-song-name" href="https://open.spotify.com/track/3M0lSi5WW79CXQamgSBIjx">Swim</a>
+                        <div class="popular-singer-name">Chase Atlantic</div>
+                    </div>
+
+                    <!-- Song 9 -->
+                    <div class="popular">
+                        <a href="https://open.spotify.com/track/0qMip0B2D4ePEjBJvAtYre">
+                            <img class="cover" src="./Exercise 5 servlet/images/gurenge.jpg" alt="Gurenge">
+                        </a>
+                        <a class="popular-song-name" href="https://open.spotify.com/track/0qMip0B2D4ePEjBJvAtYre">Gurenge</a>
+                        <div class="popular-singer-name">LiSA</div>
+                    </div>
                 </div>
             </div>
         </div>
