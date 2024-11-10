@@ -95,6 +95,16 @@
         <url-pattern>/QuestionServletc</url-pattern>
     </servlet-mapping>
 
+    <!-- ex5 c home -->
+    <servlet>
+        <servlet-name>QuestionServletchome</servlet-name>
+        <servlet-class>ex5_chome</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QuestionServletchome</servlet-name>
+        <url-pattern>/QuestionServletchome</url-pattern>
+    </servlet-mapping>
+
 </web-app>
 
 

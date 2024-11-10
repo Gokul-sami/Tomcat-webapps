@@ -5,37 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Groovy</title>
     <link rel="stylesheet" href="./Exercise 5 servlet/styles/ex5_c_home.css">
-    <script>
-        // Function to get a specific cookie by name
-        function getCookie(name) {
-            let decodedCookie = decodeURIComponent(document.cookie);
-            let cookies = decodedCookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                let c = cookies[i].trim();
-                if (c.indexOf(name + "=") === 0) {
-                    return c.substring(name.length + 1, c.length);
-                }
-            }
-            return "";
-        }
-    
-        // Function to trigger the <a> tag click on page load
-        window.onload = function() {
-            document.getElementById("cookieLink").click(); // Trigger click on the <a> tag with id "cookieLink"
-            
-            // Fetch username from the cookie and display it
-            setTimeout(() => {
-                let username = getCookie("userName"); // Corrected cookie name
-                if (username) {
-                    let s = "Hi ";
-                    document.getElementById("username-display").innerText = s + username; // Display username
-                } else {
-                    document.getElementById("username-display").innerText = "Guest";
-                }
-            }, 100); // Added a slight delay
-        };
-    </script>
-    
 </head>
 <body>
     <div class="main">
@@ -61,11 +30,7 @@
         <div class="d2">
             <!-- Header area (d3) -->
             <div class="d3">
-                <span id="username-display"></span>
-                <div class="library-title">
-                    <!-- Initially hidden link to trigger the servlet -->
-                    <a href="#" id="cookieLink" style="display:none;"></a>
-                </div>
+                <div class="library-title">Your Library</div>
                 <div class="profile-icon">👤</div>
             </div>
 
@@ -103,6 +68,43 @@
                     <img src="https://via.placeholder.com/150" alt="Category Image" class="category-image">
                     <div class="category-name">Electronic</div>
                 </div>              
+            </div>
+
+            <!-- Song listing area (d5) -->
+            <div class="d5">
+                <h2>Song List</h2>
+                <div class="song-item">
+                    <span class="song-title">Song 1</span>
+                    <span class="song-artist">Artist 1</span>
+                    <audio controls>
+                        <source src="song1.mp3" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="song-item">
+                    <span class="song-title">Song 2</span>
+                    <span class="song-artist">Artist 2</span>
+                    <audio controls>
+                        <source src="song2.mp3" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="song-item">
+                    <span class="song-title">Song 3</span>
+                    <span class="song-artist">Artist 3</span>
+                    <audio controls>
+                        <source src="song3.mp3" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="song-item">
+                    <span class="song-title">Song 4</span>
+                    <span class="song-artist">Artist 4</span>
+                    <audio controls>
+                        <source src="song4.mp3" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
             </div>
         </div>
     </div>

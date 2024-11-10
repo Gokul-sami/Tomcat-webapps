@@ -152,37 +152,3 @@ body, html {
     padding: 20px;
     margin-top: 20px;
 }
-
-/* Song listing styling */
-.song-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.song-item:last-child {
-    border-bottom: none;
-}
-
-.song-title {
-    font-weight: bold;
-    font-size: 16px;
-}
-
-.song-artist {
-    font-size: 14px;
-    color: #777;
-}
-
-/* Audio player styling */
-audio {
-    width: 150px;
-    border-radius: 5px;
-    outline: none;
-}
-
-.song-item:hover {
-    background-color: #f1f1f1;
-}

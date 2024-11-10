@@ -19,59 +19,41 @@ public class ex5_c extends HttpServlet {
 
         StringBuilder validationErrors = new StringBuilder();
 
-        // Validate Name
-        if (userName == null || userName.trim().isEmpty()) {
-            validationErrors.append("Name is required.<br>");
-        } else if (!userName.matches("[a-zA-Z ]+")) { // Allow only alphabetic characters and spaces
-            validationErrors.append("Name can only contain alphabetic characters and spaces.<br>");
+        // Validate inputs
+        if (userName == null || userName.trim().isEmpty() || !userName.matches("[a-zA-Z ]+")) {
+            validationErrors.append("Invalid name. ");
         }
-
-        // Validate Email
-        if (userEmail == null || userEmail.trim().isEmpty()) {
-            validationErrors.append("Email is required.<br>");
-        } else if (!userEmail.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) { // Improved email regex
-            validationErrors.append("Please enter a valid email address.<br>");
+        if (userEmail == null || userEmail.trim().isEmpty() || !userEmail.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
+            validationErrors.append("Invalid email. ");
         }
-
-        // Validate Password
-        if (userPassword == null || userPassword.trim().isEmpty()) {
-            validationErrors.append("Password is required.<br>");
-        } else if (userPassword.length() < 8) { // Password must be at least 8 characters
-            validationErrors.append("Password must be at least 8 characters long.<br>");
+        if (userPassword == null || userPassword.trim().isEmpty() || userPassword.length() < 8) {
+            validationErrors.append("Password must be at least 8 characters. ");
         }
-
-        // Validate Age
-        if (userAge == null || userAge.trim().isEmpty()) {
-            validationErrors.append("Age is required.<br>");
-        } else {
-            try {
-                int age = Integer.parseInt(userAge);
-                if (age < 5 || age > 120) {
-                    validationErrors.append("Please enter a realistic age (0-120).<br>");
-                }
-            } catch (NumberFormatException e) {
-                validationErrors.append("Please enter a valid age in numbers.<br>");
-            }
+        try {
+            int age = Integer.parseInt(userAge);
+            if (age < 5 || age > 120) validationErrors.append("Age out of realistic range. ");
+        } catch (NumberFormatException e) {
+            validationErrors.append("Invalid age. ");
         }
-
-        // Validate Music Genre
         if (musicGenre == null || musicGenre.trim().isEmpty()) {
-            validationErrors.append("Music genre is required.<br>");
+            validationErrors.append("Music genre is required. ");
         }
 
-        // Prepare the response
         PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-
-        // If there are validation errors, show them
         if (validationErrors.length() > 0) {
+            out.println("<html><body>");
             out.println("<h2>Form Submission Error</h2>");
             out.println("<p>" + validationErrors.toString() + "</p>");
+            out.println("</body></html>");
         } else {
-            // Redirect to the next page if there are no validation errors
+            // Set cookies for validated data
+            response.addCookie(new Cookie("userName", userName));
+            response.addCookie(new Cookie("userEmail", userEmail));
+            response.addCookie(new Cookie("userAge", userAge));
+            response.addCookie(new Cookie("musicGenre", musicGenre));
+
+            // Redirect to an HTML page
             response.sendRedirect("ex5_c_home.html");
         }
-
-        out.println("</body></html>");
     }
 }

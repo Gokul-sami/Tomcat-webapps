@@ -68,7 +68,7 @@ public class ex5_b extends HttpServlet {
             out.println("<h2>Form Submission Error</h2>");
             out.println("<p>" + validationErrors.toString() + "</p>");
         } else {
-            response.sendRedirect("ex5_c_home.html");
+            response.sendRedirect("ex5_b_home.html");
         }
 
         out.println("</body></html>");
