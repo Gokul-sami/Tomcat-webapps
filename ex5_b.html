@@ -10,67 +10,57 @@
     <div class="container">
         <div class="left-section"></div>
         <div class="right-section">
-            <div class="progress-bar">
-                <div class="progress-bar-inner" id="progressBar"></div>
-            </div>
             <form id="questionForm" action="http://localhost:8080/Tomcat-webapps/QuestionServlet" method="POST">
-                <div id="questionContainer">
-                    <!-- Questions will appear here, all loaded at once -->
+                <!-- Question 1: Name -->
+                <div class="question">
+                    <label for="userName">What name would you like to be called?</label>
+                    <div class="input-group">
+                        <input type="text" id="userName" name="userName" placeholder="Enter your name" required>
+                    </div>
                 </div>
-                <div id="hiddenInputs">
-                    <!-- Hidden inputs to accumulate answers -->
+                
+                <!-- Question 2: Email -->
+                <div class="question">
+                    <label for="userEmail">What is your email?</label>
+                    <div class="input-group">
+                        <input type="text" id="userEmail" name="userEmail" placeholder="Enter your email" required>
+                    </div>
                 </div>
+                
+                <!-- Question 3: Password -->
+                <div class="question">
+                    <label for="userPassword">Create a password</label>
+                    <div class="input-group">
+                        <input type="password" id="userPassword" name="userPassword" placeholder="Enter a password" required>
+                    </div>
+                </div>
+                
+                <!-- Question 4: Age -->
+                <div class="question">
+                    <label for="userAge">How old are you?</label>
+                    <div class="input-group">
+                        <input type="number" id="userAge" name="userAge" placeholder="Enter your age" min="0" max="120" required>
+                    </div>
+                </div>
+                
+                <!-- Question 5: Favorite Genre -->
+                <div class="question">
+                    <label for="musicGenre">What's your favorite genre?</label>
+                    <div class="input-group">
+                        <select id="musicGenre" name="musicGenre" required>
+                            <option value="">Select a genre</option>
+                            <option value="Pop">Pop</option>
+                            <option value="Rock">Rock</option>
+                            <option value="Jazz">Jazz</option>
+                            <option value="Classical">Classical</option>
+                            <option value="Hip-Hop">Hip-Hop</option>
+                        </select>
+                    </div>
+                </div>
+
                 <button type="submit" class="button" id="submitButton">Submit</button>
             </form>
         </div>
     </div>
-
-    <script>
-        const questions = [
-            { text: "What name would you like to be called?", inputType: "text", name: "userName", placeholder: "Enter your name" },
-            { text: "What is your email?", inputType: "text", name: "userEmail", placeholder: "Enter your email" },
-            { text: "Create a password", inputType: "password", name: "userPassword", placeholder: "Enter a password" },
-            { text: "How old are you?", inputType: "number", name: "userAge", placeholder: "Enter your age", min: "0", max: "120" },
-            { text: "What's your favorite genre?", inputType: "select", name: "musicGenre", options: ["Pop", "Rock", "Jazz", "Classical", "Hip-Hop"] }
-        ];
-
-        // Function to load all questions at once
-        function loadAllQuestions() {
-            const questionContainer = document.getElementById('questionContainer');
-            questionContainer.innerHTML = '';  // Clear existing questions
-
-            questions.forEach((question) => {
-                let questionHTML = `<div class="question">${question.text}</div><div class="input-group">`;
-                
-                if (question.inputType === "select") {
-                    questionHTML += `<select name="${question.name}" required>`;
-                    question.options.forEach(option => {
-                        questionHTML += `<option value="${option}">${option}</option>`;
-                    });
-                    questionHTML += `</select>`;
-                } else {
-                    questionHTML += `<input type="${question.inputType}" name="${question.name}" placeholder="${question.placeholder}" ${question.min ? `min="${question.min}"` : ''} ${question.max ? `max="${question.max}"` : ''} required>`;
-                }
-                questionHTML += `</div>`;
-                questionContainer.innerHTML += questionHTML;
-            });
-
-            // Update the progress bar once all questions are loaded
-            updateProgressBar();
-        }
-
-        // Function to update the progress bar
-        function updateProgressBar() {
-            const progressBar = document.getElementById('progressBar');
-            const progress = (questions.length / questions.length) * 100;
-            progressBar.style.width = `${progress}%`;
-        }
-
-        // Load all questions when the page loads
-        window.onload = function() {
-            loadAllQuestions();
-        };
-    </script>
-    
 </body>
 </html>
