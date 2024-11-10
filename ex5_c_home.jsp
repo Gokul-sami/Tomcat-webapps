@@ -1,200 +1,12 @@
+<%@ page import="javax.servlet.http.HttpSession" %>
 <!DOCTYPE html>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Groovy</title>
-    <style>
-        /* Reset default styling */
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            font-family: 'Arial', sans-serif;
-            overflow: hidden;
-            background-color: #f9f9f9;
-        }
-
-        /* Main flex container */
-        .main {
-            display: flex;
-            width: 100%;
-            height: 100vh;
-        }
-
-        /* Sticky navigation area (d1) */
-        .d1 {
-            flex: 0 0 15%;
-            background-color: #222;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            box-sizing: border-box;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            transition: all 0.3s ease;
-        }
-
-        .d1:hover {
-            background-color: #444;
-        }
-
-        /* Logo styling */
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        /* Navigation links */
-        .nav-link {
-            display: flex;
-            align-items: center;
-            margin: 15px 0;
-            cursor: pointer;
-            font-size: 16px;
-            text-decoration: none;
-            color: #fff;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: #e1e1e1;
-        }
-
-        /* Bottom navigation */
-        .nav-bottom {
-            margin-top: auto;
-        }
-
-        .icon {
-            margin-right: 10px;
-        }
-
-        /* Content area (d2) */
-        .d2 {
-            flex: 1;
-            padding: 20px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            overflow-y: auto;
-        }
-
-        /* Header area in d2 (d3) */
-        .d3 {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            background-color: #333;
-            color: #fff;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        .library-title {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .profile-icon {
-            font-size: 20px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .profile-icon:hover {
-            transform: scale(1.1);
-        }
-
-        /* Category tiles grid (d4) */
-        .d4 {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .category-tile {
-            position: relative;
-            background-color: #333;
-            color: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            text-align: center;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .category-tile:hover {
-            transform: scale(1.05);
-        }
-
-        .category-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.8;
-        }
-
-        .category-name {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 18px;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        /* Song listing area (d5) */
-        .d5 {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        /* Song listing styling */
-        .song-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .song-item:last-child {
-            border-bottom: none;
-        }
-
-        .song-title {
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .song-artist {
-            font-size: 14px;
-            color: #777;
-        }
-
-        /* Audio player styling */
-        audio {
-            width: 150px;
-            border-radius: 5px;
-            outline: none;
-        }
-
-        .song-item:hover {
-            background-color: #f1f1f1;
-        }
-    </style>
+    <link rel="stylesheet" href="./Exercise 5 servlet/styles/ex5_c_home.css">
 </head>
 <body>
     <div class="main">
@@ -220,7 +32,11 @@
         <div class="d2">
             <!-- Header area (d3) -->
             <div class="d3">
-                <div class="library-title">Your Library</div>
+                <!-- <div class="library-title">Your Library</div> -->
+                <!-- Display the name from session -->
+                <div class="library-title">
+                    <p>Welcome, <%= session.getAttribute("userName") %>!</p>
+                </div>
                 <div class="profile-icon">👤</div>
             </div>
 

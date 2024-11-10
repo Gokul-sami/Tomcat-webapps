@@ -63,18 +63,19 @@ public class ex5_c extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
 
-        // Check if there were validation errors
+        // If there are validation errors, show them
         if (validationErrors.length() > 0) {
             out.println("<h2>Form Submission Error</h2>");
             out.println("<p>" + validationErrors.toString() + "</p>");
         } else {
-            // Display user input and confirm success
-            out.println("<h2>Thank you for your response!</h2>");
-            out.println("<p>Name: " + userName + "</p>");
-            out.println("<p>Email: " + userEmail + "</p>");
-            out.println("<p>Age: " + userAge + "</p>");
-            out.println("<p>Password: " + "********" + "</p>");  // Masking the password for display
-            out.println("<p>Favorite Music Genre: " + musicGenre + "</p>");
+            // If no validation errors, create a session and store data
+            HttpSession session = request.getSession();
+            session.setAttribute("userName", userName);
+            session.setAttribute("userEmail", userEmail);
+            session.setAttribute("userAge", userAge);
+            session.setAttribute("musicGenre", musicGenre);
+
+            response.sendRedirect("ex5_c_home.jsp");
         }
 
         out.println("</body></html>");
