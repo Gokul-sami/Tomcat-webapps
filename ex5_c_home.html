@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Groovy</title>
     <link rel="stylesheet" href="./Exercise 5 servlet/styles/ex5_c_home.css">
+    <style>
+        .cover:hover {
+            border-color: #7827e7;
+        }
+    </style>
     <script>
         // Function to get a specific cookie by name
         function getCookie(name) {
@@ -18,45 +23,26 @@
             }
             return "";
         }
-    
+
         // Function to trigger the <a> tag click on page load
         window.onload = function() {
-            document.getElementById("cookieLink").click(); // Trigger click on the <a> tag with id "cookieLink"
+            document.getElementById("cookieLink").click();
             
             // Fetch username from the cookie and display it
             setTimeout(() => {
-                let username = getCookie("userName"); // Corrected cookie name
+                let username = getCookie("userName");
                 if (username) {
                     let s = "Hi ";
-                    document.getElementById("username-display").innerText = s + username; // Display username
+                    document.getElementById("username-display").innerText = s + username;
                 } else {
                     document.getElementById("username-display").innerText = "Guest";
                 }
-            }, 100); // Added a slight delay
+            }, 100);
         };
     </script>
-    
 </head>
 <body>
     <div class="main">
-        <!-- Navigation area (d1) -->
-        <div class="d1">
-            <div class="logo">🎵 Groovy</div>
-            <div class="nav-section">
-                <div class="nav-link"><span class="icon">🏠</span>Home</div>
-                <div class="nav-link"><span class="icon">🔍</span>Search</div>
-                <div class="nav-link"><span class="icon">📚</span>My Library</div>
-            </div>
-            <div class="nav-section">
-                <div class="nav-link"><span class="icon">➕</span>New Playlist</div>
-                <div class="nav-link"><span class="icon">❤️</span>Liked Songs</div>
-            </div>
-            <div class="nav-bottom">
-                <div class="nav-link"><span class="icon">⚙️</span>Settings</div>
-                <div class="nav-link"><span class="icon">🚪</span>Logout</div>
-            </div>
-        </div>
-
         <!-- Content area (d2) -->
         <div class="d2">
             <!-- Header area (d3) -->
@@ -102,7 +88,94 @@
                 <div class="category-tile">
                     <img src="https://via.placeholder.com/150" alt="Category Image" class="category-image">
                     <div class="category-name">Electronic</div>
-                </div>              
+                </div>
+            </div>
+
+            <!-- Popular Songs Section -->
+            <div class="popular-section">
+                <h2 style="font-size: 2em;">Popular Songs</h2>
+                <div class="popular-songs">
+                    <!-- Song 1 -->
+                    <div class="popular">
+                        <a href="https://open.spotify.com/track/2GiJYvgVaD2HtM8GqD9EgQ">
+                            <img class="cover" src="./Exercise 5 servlet/images/electric love.jpg" alt="Electric Love">
+                        </a>
+                        <a href="https://open.spotify.com/track/2GiJYvgVaD2HtM8GqD9EgQ" class="popular-song-name">Electric Love</a>
+                        <div class="popular-singer-name">Borns</div>
+                    </div>
+
+                    <!-- Song 2 -->
+                    <div class="popular">
+                        <a href="https://open.spotify.com/track/42VsgItocQwOQC3XWZ8JNA">
+                            <img class="cover" src="./Exercise 5 servlet/images/fein.jpg" alt="FEIN">
+                        </a>
+                        <a href="https://open.spotify.com/track/42VsgItocQwOQC3XWZ8JNA" class="popular-song-name">FEIN</a>
+                        <div class="popular-singer-name">Travis Scott, Playboi Carti</div>
+                    </div>
+
+                    <!-- Song 3 -->
+                    <div class="popular">
+                        <a href="https://open.spotify.com/track/5FVd6KXrgO9B3JPmC8OPst">
+                            <img class="cover" src="./Exercise 5 servlet/images/do i wanna know.jpg" alt="Do I Wanna Know">
+                        </a>
+                        <a href="https://open.spotify.com/track/5FVd6KXrgO9B3JPmC8OPst" class="popular-song-name">Do I Wanna Know</a>
+                        <div class="popular-singer-name">Arctic Monkeys</div>
+                    </div>
+
+                    <!-- Song 4 -->
+                    <div class="popular">
+                        <a href="https://open.spotify.com/track/5LrN7yUQAzvthd4QujgPFr">
+                            <img class="cover" src="./Exercise 5 servlet/images/here.jpg" alt="Here">
+                        </a>
+                        <a href="https://open.spotify.com/track/5LrN7yUQAzvthd4QujgPFr" class="popular-song-name">Here</a>
+                        <div class="popular-singer-name">Alessia Shah</div>
+                    </div>
+
+                    <!-- Song 5 -->
+                    <div class="popular">
+                        <a href="https://open.spotify.com/track/4ztdjZ2t7BVo5DLIFQBdJh">
+                            <img class="cover" src="./Exercise 5 servlet/images/jericho.jpg" alt="Jericho">
+                        </a>
+                        <a href="https://open.spotify.com/track/4ztdjZ2t7BVo5DLIFQBdJh" class="popular-song-name">Jericho</a>
+                        <div class="popular-singer-name">Iniko</div>
+                    </div>
+
+                    <!-- Song 6 -->
+                    <div class="popular">
+                        <a href="https://open.spotify.com/album/7vus4Q8r5DS2Dl1JClxEsA">
+                            <img class="cover" src="./Exercise 5 servlet/images/astronaut in the ocean.jpg" alt="Astronaut In The Ocean">
+                        </a>
+                        <a href="https://open.spotify.com/album/7vus4Q8r5DS2Dl1JClxEsA" class="popular-song-name">Astronaut In The Ocean</a>
+                        <div class="popular-singer-name">Masked Wolf</div>
+                    </div>
+
+                    <!-- Song 7 -->
+                    <div class="popular">
+                        <a href="https://open.spotify.com/track/2gam98EZKrF9XuOkU13ApN">
+                            <img class="cover" src="./Exercise 5 servlet/images/promiscuous.jpg" alt="Promiscuous">
+                        </a>
+                        <a class="popular-song-name" href="https://open.spotify.com/track/2gam98EZKrF9XuOkU13ApN">Promiscuous</a>
+                        <div class="popular-singer-name">Nelly Furtado, Timbaland</div>
+                    </div>
+
+                    <!-- Song 8 -->
+                    <div class="popular">
+                        <a href="https://open.spotify.com/track/3M0lSi5WW79CXQamgSBIjx">
+                            <img class="cover" src="./Exercise 5 servlet/images/swim.jpg" alt="Swim">
+                        </a>
+                        <a class="popular-song-name" href="https://open.spotify.com/track/3M0lSi5WW79CXQamgSBIjx">Swim</a>
+                        <div class="popular-singer-name">Chase Atlantic</div>
+                    </div>
+
+                    <!-- Song 9 -->
+                    <div class="popular">
+                        <a href="https://open.spotify.com/track/0qMip0B2D4ePEjBJvAtYre">
+                            <img class="cover" src="./Exercise 5 servlet/images/gurenge.jpg" alt="Gurenge">
+                        </a>
+                        <a class="popular-song-name" href="https://open.spotify.com/track/0qMip0B2D4ePEjBJvAtYre">Gurenge</a>
+                        <div class="popular-singer-name">LiSA</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
