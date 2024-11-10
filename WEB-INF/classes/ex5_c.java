@@ -68,14 +68,8 @@ public class ex5_c extends HttpServlet {
             out.println("<h2>Form Submission Error</h2>");
             out.println("<p>" + validationErrors.toString() + "</p>");
         } else {
-            // If no validation errors, create a session and store data
-            HttpSession session = request.getSession();
-            session.setAttribute("userName", userName);
-            session.setAttribute("userEmail", userEmail);
-            session.setAttribute("userAge", userAge);
-            session.setAttribute("musicGenre", musicGenre);
-
-            response.sendRedirect("ex5_c_home.jsp");
+            // Redirect to the next page if there are no validation errors
+            response.sendRedirect("ex5_c_home.html");
         }
 
         out.println("</body></html>");

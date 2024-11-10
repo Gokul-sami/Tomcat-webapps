@@ -68,13 +68,7 @@ public class ex5_b extends HttpServlet {
             out.println("<h2>Form Submission Error</h2>");
             out.println("<p>" + validationErrors.toString() + "</p>");
         } else {
-            // Display user input and confirm success
-            out.println("<h2>Thank you for your response!</h2>");
-            out.println("<p>Name: " + userName + "</p>");
-            out.println("<p>Email: " + userEmail + "</p>");
-            out.println("<p>Age: " + userAge + "</p>");
-            out.println("<p>Password: " + "********" + "</p>");  // Masking the password for display
-            out.println("<p>Favorite Music Genre: " + musicGenre + "</p>");
+            response.sendRedirect("ex5_c_home.html");
         }
 
         out.println("</body></html>");
