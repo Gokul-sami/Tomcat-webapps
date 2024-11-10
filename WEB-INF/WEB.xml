@@ -75,6 +75,16 @@
         <url-pattern>/formServe</url-pattern>
     </servlet-mapping>
     
+    <!-- ex5 b -->
+    <servlet>
+        <servlet-name>QuestionServlet</servlet-name>
+        <servlet-class>ex5_b</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QuestionServlet</servlet-name>
+        <url-pattern>/QuestionServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
 
 
