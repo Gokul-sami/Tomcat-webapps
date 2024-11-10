@@ -10,64 +10,73 @@ public class ex5_b extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
+        // Retrieve form parameters
         String userName = request.getParameter("userName");
+        String userEmail = request.getParameter("userEmail");
         String userAge = request.getParameter("userAge");
+        String userPassword = request.getParameter("userPassword");
         String musicGenre = request.getParameter("musicGenre");
-        String livePerformance = request.getParameter("livePerformance");
-        String listeningFrequency = request.getParameter("listeningFrequency");
 
         StringBuilder validationErrors = new StringBuilder();
 
+        // Validate Name
         if (userName == null || userName.trim().isEmpty()) {
             validationErrors.append("Name is required.<br>");
-        } else if (!userName.matches("[a-zA-Z ]+")) {
+        } else if (!userName.matches("[a-zA-Z ]+")) { // Allow only alphabetic characters and spaces
             validationErrors.append("Name can only contain alphabetic characters and spaces.<br>");
         }
-        
+
+        // Validate Email
+        if (userEmail == null || userEmail.trim().isEmpty()) {
+            validationErrors.append("Email is required.<br>");
+        } else if (!userEmail.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) { // Improved email regex
+            validationErrors.append("Please enter a valid email address.<br>");
+        }
+
+        // Validate Password
+        if (userPassword == null || userPassword.trim().isEmpty()) {
+            validationErrors.append("Password is required.<br>");
+        } else if (userPassword.length() < 8) { // Password must be at least 8 characters
+            validationErrors.append("Password must be at least 8 characters long.<br>");
+        }
+
+        // Validate Age
         if (userAge == null || userAge.trim().isEmpty()) {
             validationErrors.append("Age is required.<br>");
         } else {
             try {
                 int age = Integer.parseInt(userAge);
-                if (age < 0 || age > 120) {
+                if (age < 5 || age > 120) {
                     validationErrors.append("Please enter a realistic age (0-120).<br>");
                 }
             } catch (NumberFormatException e) {
                 validationErrors.append("Please enter a valid age in numbers.<br>");
             }
         }
-        
+
+        // Validate Music Genre
         if (musicGenre == null || musicGenre.trim().isEmpty()) {
             validationErrors.append("Music genre is required.<br>");
-        } else if (!musicGenre.matches("[a-zA-Z ]+")) {
-            validationErrors.append("Music genre should only contain alphabetic characters and spaces.<br>");
         }
-        
-        if (livePerformance == null || livePerformance.trim().isEmpty()) {
-            validationErrors.append("Live performance preference is required.<br>");
-        } else if (!livePerformance.equalsIgnoreCase("Yes") && !livePerformance.equalsIgnoreCase("No")) {
-            validationErrors.append("Live performance preference should be either 'Yes' or 'No'.<br>");
-        }
-        
-        if (listeningFrequency == null || listeningFrequency.trim().isEmpty()) {
-            validationErrors.append("Listening frequency is required.<br>");
-        } else if (!listeningFrequency.matches("(?i)Daily|Weekly|Monthly|Rarely")) {
-            validationErrors.append("Listening frequency should be 'Daily', 'Weekly', 'Monthly', or 'Rarely'.<br>");
-        }        
 
+        // Prepare the response
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
+
+        // Check if there were validation errors
         if (validationErrors.length() > 0) {
             out.println("<h2>Form Submission Error</h2>");
             out.println("<p>" + validationErrors.toString() + "</p>");
         } else {
+            // Display user input and confirm success
             out.println("<h2>Thank you for your response!</h2>");
             out.println("<p>Name: " + userName + "</p>");
+            out.println("<p>Email: " + userEmail + "</p>");
             out.println("<p>Age: " + userAge + "</p>");
+            out.println("<p>Password: " + "********" + "</p>");  // Masking the password for display
             out.println("<p>Favorite Music Genre: " + musicGenre + "</p>");
-            out.println("<p>Live Performance Preference: " + livePerformance + "</p>");
-            out.println("<p>Listening Frequency: " + listeningFrequency + "</p>");
         }
+
         out.println("</body></html>");
     }
 }
