@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Listening App</title>
+    <link rel="stylesheet" href="./Exercise 5 servlet/styles/ex5_c.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-section"></div>
+        <div class="right-section">
+            <div class="progress-bar">
+                <div class="progress-bar-inner" id="progressBar"></div>
+            </div>
+            <form id="questionForm" action="http://localhost:8080/Tomcat-webapps/QuestionServletc" method="POST">
+                <div id="questionContainer">
+                    <!-- Questions will appear here, all loaded at once -->
+                </div>
+                <div id="hiddenInputs">
+                    <!-- Hidden inputs to accumulate answers -->
+                </div>
+                <button type="submit" class="button" id="submitButton">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            { text: "What name would you like to be called?", inputType: "text", name: "userName", placeholder: "Enter your name" },
+            { text: "What is your email?", inputType: "text", name: "userEmail", placeholder: "Enter your email" },
+            { text: "Create a password", inputType: "password", name: "userPassword", placeholder: "Enter a password" },
+            { text: "How old are you?", inputType: "number", name: "userAge", placeholder: "Enter your age", min: "0", max: "120" },
+            { text: "What's your favorite genre?", inputType: "select", name: "musicGenre", options: ["Pop", "Rock", "Jazz", "Classical", "Hip-Hop"] }
+        ];
+
+        // Function to load all questions at once
+        function loadAllQuestions() {
+            const questionContainer = document.getElementById('questionContainer');
+            questionContainer.innerHTML = '';  // Clear existing questions
+
+            questions.forEach((question) => {
+                let questionHTML = `<div class="question">${question.text}</div><div class="input-group">`;
+                
+                if (question.inputType === "select") {
+                    questionHTML += `<select name="${question.name}" required>`;
+                    question.options.forEach(option => {
+                        questionHTML += `<option value="${option}">${option}</option>`;
+                    });
+                    questionHTML += `</select>`;
+                } else {
+                    questionHTML += `<input type="${question.inputType}" name="${question.name}" placeholder="${question.placeholder}" ${question.min ? `min="${question.min}"` : ''} ${question.max ? `max="${question.max}"` : ''} required>`;
+                }
+                questionHTML += `</div>`;
+                questionContainer.innerHTML += questionHTML;
+            });
+
+            // Update the progress bar once all questions are loaded
+            updateProgressBar();
+        }
+
+        // Function to update the progress bar
+        function updateProgressBar() {
+            const progressBar = document.getElementById('progressBar');
+            const progress = (questions.length / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Load all questions when the page loads
+        window.onload = function() {
+            loadAllQuestions();
+        };
+    </script>
+    
+</body>
+</html>

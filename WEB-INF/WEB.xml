@@ -85,6 +85,16 @@
         <url-pattern>/QuestionServlet</url-pattern>
     </servlet-mapping>
 
+    <!-- ex5 c -->
+    <servlet>
+        <servlet-name>QuestionServletc</servlet-name>
+        <servlet-class>ex5_c</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QuestionServletc</servlet-name>
+        <url-pattern>/QuestionServletc</url-pattern>
+    </servlet-mapping>
+
 </web-app>
 
 
