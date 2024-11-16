@@ -125,6 +125,26 @@
         <url-pattern>/QuestionServletc2home</url-pattern>
     </servlet-mapping>
 
+    <!-- ex5 c url -->
+    <servlet>
+        <servlet-name>QuestionServletc3</servlet-name>
+        <servlet-class>ex5_c_3_url_rewriting</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QuestionServletc3</servlet-name>
+        <url-pattern>/QuestionServletc3</url-pattern>
+    </servlet-mapping>
+
+    <!-- ex5 c home url -->
+    <servlet>
+        <servlet-name>QuestionServletc3home</servlet-name>
+        <servlet-class>ex5_chome_3_url_rewriting</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QuestionServletc3home</servlet-name>
+        <url-pattern>/QuestionServletc3home</url-pattern>
+    </servlet-mapping>
+
     <!-- ex5 d -->
     <servlet>
         <servlet-name>QuestionServletd</servlet-name>

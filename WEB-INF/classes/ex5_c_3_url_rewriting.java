@@ -3,8 +3,8 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet("/QuestionServletc2")
-public class ex5_c_2_httpsession extends HttpServlet {
+@WebServlet("/QuestionServletc3")
+public class ex5_c_3_url_rewriting extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -57,14 +57,6 @@ public class ex5_c_2_httpsession extends HttpServlet {
             out.println("</div>");
             out.println("</body></html>");
         } else {
-            // Store validated data in HttpSession
-            HttpSession session = request.getSession();
-            session.setAttribute("userName", userName);
-            session.setAttribute("userEmail", userEmail);
-            session.setAttribute("userAge", userAge);
-            session.setAttribute("musicGenre", musicGenre);
-
-            // Redirect to welcome page
             out.println("<html>");
             out.println("<head>");
             out.println("<style>");
@@ -79,10 +71,11 @@ public class ex5_c_2_httpsession extends HttpServlet {
             out.println("<div class='container'>");
             out.println("<h3>Welcome, " + userName + "!</h3>");
             out.println("<p>Click the link below to visit your homepage:</p>");
-            out.println("<a href='QuestionServletc2home'>HOME</a>");
+            out.println("<a href='QuestionServletc3home?useraName="+userName+"'>HOME</a>");
             out.println("</div>");
             out.println("</body></html>");
+
+            out.close();
         }
-        out.close();
     }
 }
