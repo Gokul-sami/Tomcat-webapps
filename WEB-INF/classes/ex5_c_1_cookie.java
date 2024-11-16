@@ -4,7 +4,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
 @WebServlet("/QuestionServletc")
-public class ex5_c extends HttpServlet {
+public class ex5_c_1_cookie extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,9 +41,20 @@ public class ex5_c extends HttpServlet {
 
         PrintWriter out = response.getWriter();
         if (validationErrors.length() > 0) {
-            out.println("<html><body>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<style>");
+            out.println("body { font-family: Arial, sans-serif; background-color: #f4f4f9; margin: 0; padding: 20px; }");
+            out.println(".container { max-width: 600px; margin: auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }");
+            out.println("h2 { color: #d9534f; }");
+            out.println("p { font-size: 1.1em; color: #555; }");
+            out.println("</style>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<div class='container'>");
             out.println("<h2>Form Submission Error</h2>");
             out.println("<p>" + validationErrors.toString() + "</p>");
+            out.println("</div>");
             out.println("</body></html>");
         } else {
             // Set cookies for validated data
@@ -52,8 +63,25 @@ public class ex5_c extends HttpServlet {
             response.addCookie(new Cookie("userAge", userAge));
             response.addCookie(new Cookie("musicGenre", musicGenre));
 
-            // Redirect to an HTML page
-            response.sendRedirect("ex5_c_home.html");
+            // Redirect
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<style>");
+            out.println("body { font-family: Arial, sans-serif; background-color: #f4f4f9; margin: 0; padding: 20px; }");
+            out.println(".container { max-width: 600px; margin: auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }");
+            out.println("h3 { color: #5cb85c; }");
+            out.println("a { display: inline-block; margin-top: 15px; padding: 10px 20px; color: #fff; background-color: #0275d8; text-decoration: none; border-radius: 4px; }");
+            out.println("a:hover { background-color: #025aa5; }");
+            out.println("</style>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<div class='container'>");
+            out.println("<h3>Welcome, " + userName + "!</h3>");
+            out.println("<p>Click the link below to visit your homepage:</p>");
+            out.println("<a href='QuestionServletc1home'>HOME</a>");
+            out.println("</div>");
+            out.println("</body></html>");
         }
+        out.close();
     }
 }
