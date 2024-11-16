@@ -145,6 +145,26 @@
         <url-pattern>/QuestionServletc3home</url-pattern>
     </servlet-mapping>
 
+    <!-- ex5 c hidden -->
+    <servlet>
+        <servlet-name>QuestionServletc4</servlet-name>
+        <servlet-class>ex5_c_4_hidden</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QuestionServletc4</servlet-name>
+        <url-pattern>/QuestionServletc4</url-pattern>
+    </servlet-mapping>
+
+    <!-- ex5 c home hidden -->
+    <servlet>
+        <servlet-name>QuestionServletc4home</servlet-name>
+        <servlet-class>ex5_chome_4_hidden</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QuestionServletc4home</servlet-name>
+        <url-pattern>/QuestionServletc4home</url-pattern>
+    </servlet-mapping>
+
     <!-- ex5 d -->
     <servlet>
         <servlet-name>QuestionServletd</servlet-name>
