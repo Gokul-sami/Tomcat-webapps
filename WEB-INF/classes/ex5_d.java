@@ -48,9 +48,9 @@ public class ex5_d extends HttpServlet {
             out.println("</body></html>");
         } else {
             // Database connection
-            String DB_URL = "jdbc:mysql://localhost:3306/your_database_name"; // replace with your DB URL
-            String DB_USER = "your_db_user";  // replace with your DB username
-            String DB_PASSWORD = "your_db_password"; // replace with your DB password
+            String DB_URL = "jdbc:mysql://localhost:3306/groovy"; // Use your database name "groovy"
+            String DB_USER = "root";  // Replace with your DB username
+            String DB_PASSWORD = "your_password"; // Replace with your DB password
 
             Connection conn = null;
             PreparedStatement stmt = null;
@@ -62,12 +62,24 @@ public class ex5_d extends HttpServlet {
                 // Open a connection
                 conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
+                // Create table if not exists
+                String createTableSQL = "CREATE TABLE IF NOT EXISTS users (" +
+                        "id INT AUTO_INCREMENT PRIMARY KEY, " +
+                        "userName VARCHAR(100) NOT NULL, " +
+                        "userEmail VARCHAR(100) NOT NULL UNIQUE, " +
+                        "userAge INT NOT NULL, " +
+                        "userPassword VARCHAR(100) NOT NULL, " +
+                        "musicGenre VARCHAR(50) NOT NULL" +
+                        ")";
+                stmt = conn.prepareStatement(createTableSQL);
+                stmt.executeUpdate(); // Execute table creation query
+
                 // Prepare SQL query to insert data
                 String sql = "INSERT INTO users (userName, userEmail, userAge, userPassword, musicGenre) VALUES (?, ?, ?, ?, ?)";
                 stmt = conn.prepareStatement(sql);
                 stmt.setString(1, userName);
                 stmt.setString(2, userEmail);
-                stmt.setInt(3, Integer.parseInt(userAge)); // assuming age is an integer
+                stmt.setInt(3, Integer.parseInt(userAge));
                 stmt.setString(4, userPassword);
                 stmt.setString(5, musicGenre);
 
@@ -92,14 +104,6 @@ public class ex5_d extends HttpServlet {
                 out.println("<h2>Error</h2>");
                 out.println("<p>There was an issue connecting to the database: " + e.getMessage() + "</p>");
                 out.println("</body></html>");
-            } finally {
-                try {
-                    // Clean up the environment
-                    if (stmt != null) stmt.close();
-                    if (conn != null) conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
             }
         }
     }
